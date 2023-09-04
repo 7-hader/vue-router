@@ -18,15 +18,20 @@ import { RouterLink, RouterView } from 'vue-router'
             active-class="active">
             Home</RouterLink>
 
-          <RouterLink to="/about" 
+          <!-- <RouterLink to="/about" 
             class="btn btn-outline-success ms-2"
             active-class="active">
-            About</RouterLink>
+            About</RouterLink> -->
 
           <RouterLink to="/pokemons" 
             class="btn btn-outline-success ms-2"
             active-class="active">
             Pokemons</RouterLink>
+
+          <RouterLink to="/favorites" 
+            class="btn btn-outline-success ms-2"
+            active-class="active">
+            Favorites</RouterLink>
         </div>
       </div>      
     </nav>

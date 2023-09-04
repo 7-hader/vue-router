@@ -17,11 +17,14 @@
 
 import { useRoute, useRouter } from 'vue-router'
 import { useGetData } from '@/composables/getData';
+import { useFavoritesStore } from '@/store/favorites'
 
 const route = useRoute()
 const router = useRouter()
+const useFavorites = useFavoritesStore()
 
-const { getData, data:pokemon, error, loading } = useGetData();
+const { getData, data:pokemon, error, loading } = useGetData()
+const { add, get } = useFavorites
 
 getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
 
@@ -43,6 +46,12 @@ const goBack = () => {
             {{ route.params.name }}
             <!-- {{ $route.params.name }} -->
         </h1>
+        <button 
+            class="btn btn-outline-primary me-2"
+            :disabled="get(pokemon.name)"
+            @click="add(pokemon)"
+            >Agregar a Favoritos
+        </button>
     </template>    
     <!-- <h1 v-else>El Pekemon no existe!</h1> -->
     
